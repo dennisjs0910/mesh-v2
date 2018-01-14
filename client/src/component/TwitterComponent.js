@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './index.css';
 
-class TwitterComponent extends React.Component {
+class TwitterComponent extends Component {
     render() {
         return (
             <div className="panel panel-primary">
-                <div class="panel-heading">Panel Heading</div>
-                <div class="panel-body">Panel Content</div>
+                <div className="panel-heading">Panel Heading</div>
+                <div className="panel-body">Panel Content</div>
             </div>
         );
     }
