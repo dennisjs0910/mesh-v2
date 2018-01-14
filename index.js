@@ -5,7 +5,7 @@ const passport = require('passport');
 const morgan = require('morgan');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
-
+const twitter = require('./services/twitterClient');
 // Models
 require('./models/User');
 
