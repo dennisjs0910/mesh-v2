@@ -1,15 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 const passport = require('passport');
 const morgan = require('morgan');
 const keys = require('./config/keys');
-const cookieSession = require('cookie-session');
-const twitter = require('./services/twitterClient');
+// const twitter = require('./services/twitterClient');
 // Models
 require('./models/User');
 
-require('./services/passport');
+require('./services/googlePassport');
+require('./services/twitterPassport');
+
 // DATABASE PROXY to check go on mlab.com
 mongoose.connect(keys.mongoURI);
 
@@ -23,11 +25,11 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/googlePlusAuth')(app);
+require('./routes/twitterRoutes')(app);
 
 app.listen(5000);
 

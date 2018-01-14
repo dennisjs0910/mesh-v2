@@ -1,9 +1,10 @@
 module.exports = {
+    cookieKey: 'helloworld',
     googleClientId: "184022079079-kp7i8s81qb3lm2dog7rp0sahj2gorbf3.apps.googleusercontent.com",
     googleClientSecret: "t02-FArOj3qRwhrvkiMjrVWz",
-    twitterConsumerKey:	"NycEYGlOSSE6duR6mlOEa3ubF",
-    twitterConsumerSecret: "mlLwlsiv7uV5arJ4W0Pxh6gUL8mqGZX3ZRwywGf8fAc7GLKNtD",
-    twitterAccessToken: "4487517919-i5JQf38nvjAVbu173ZUmlsxGhJKXbrgxsgAEDW8",
-    twitterAccesssTokenSecret: "5jYxfsqf6YZoidJ8LAfVbRV0YduD6QBtorTr4EodjKI96",
+    twitterConsumerKey:	"LRugJVkMdjDd7zgBRp3DqRzbJ",
+    twitterConsumerSecret: "m3QUi4KobAYkJip9Rg9qhWYHNQt3KNKpFshOeGP0k3zbyBjFxt",
+    twitterAccessToken: "952425623221280768-Gvs2AgwbDCSu6GfLC0kds7vVExn8aoR",
+    twitterAccesssTokenSecret: "2fnGufI3xA84yZDIcsrUPIWg8OyF6uJsbOa0W9FwTC2GR",
     mongoURI: 'mongodb://dennisjs0910:Admin123Admin123@ds251217.mlab.com:51217/nwhack2018'
 }

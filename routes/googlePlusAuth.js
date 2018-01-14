@@ -5,19 +5,18 @@ module.exports = (app) => {
         scope: ['profile', 'email']
     }));
 
-    app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+    app.get('/auth/google/callback', passport.authenticate('google', {session: true}), (req, res) => {
         currentUser = req.user;
         res.redirect('/');
     });
 
     app.get('/api/logout', (req, res) => {
-        currentUser = null;
+        // currentUser = null;
         req.logout(); // logout function is attached to the req object by passport
         res.redirect('/');
     });
 
     app.get('/api/current_user', (req, res) => {
-        console.log(currentUser);
-        res.send(currentUser);
+        res.send(req.user);
     });
 }
