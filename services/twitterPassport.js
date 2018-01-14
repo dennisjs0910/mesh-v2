@@ -12,11 +12,9 @@ passport.use(new TwitterStrategy({
         passReqToCallback : true,
     },
     (req, token, tokenSecret, profile, done) => {
-        let currentUser = req.user;
-        console.log(currentUser)
-        if (currentUser) {
+        if (req.user) {
             User.findByIdAndUpdate(
-                currentUser._id,
+                req.user._id,
                 { twitterToken: token, twitterTokenSecret: tokenSecret},
                 (err, user) => {
                     done(null, user);

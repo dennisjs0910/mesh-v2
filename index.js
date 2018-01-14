@@ -30,6 +30,7 @@ app.use(passport.session());
 
 require('./routes/googlePlusAuth')(app);
 require('./routes/twitterRoutes')(app);
+require('./routes/instagramRoutes')(app);
 
 app.listen(5000);
 
