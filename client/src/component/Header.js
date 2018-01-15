@@ -11,7 +11,8 @@ class Header extends Component {
             case false:
                 return <a className="nav-item nav-link" href='/auth/google'>Login with Google</a>
             default:
-                return <a className="nav-item nav-link">LOGIN SUCCESS</a>
+                console.log("props", this.props.auth);
+                return <a className="nav-item nav-link">{this.props.auth.name}</a>
         }
     }
 
