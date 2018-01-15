@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchTwitterTimeLine } from '../actions';
-import * as styles from './twitter.css';
 
 class TwitterComponent extends Component {
 
