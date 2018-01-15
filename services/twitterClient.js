@@ -22,7 +22,7 @@ class TwitterClient {
     getUserTimeLine() {
         return new Promise((resolve, reject) => {
             let params = {screen_name: 'nodejs'};
-            this.engine.get('statuses/user_timeline', params, 
+            this.engine.get('statuses/home_timeline', params, 
                 (error, tweets, response) => {
                     if (!error) {
                         resolve(tweets);
@@ -37,4 +37,8 @@ class TwitterClient {
 
 module.exports = TwitterClient;
 
-// let twitterClient = new TwitterClient();
+
+
+
+
+

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styles from './styleSheets/Header.css';
+import styles from './stylesheet/Header.css';
 
 class Header extends Component {
     renderContent() {
@@ -11,8 +11,7 @@ class Header extends Component {
             case false:
                 return <a className="nav-item nav-link" href='/auth/google'>Login with Google</a>
             default:
-                console.log("props", this.props.auth);
-                return <a className="nav-item nav-link">{this.props.auth.name}</a>
+                return <a className="nav-item nav-link" href='/api/logout'>Logout</a>
         }
     }
 
@@ -25,8 +24,6 @@ class Header extends Component {
 
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-item nav-link" href="#">Features</a>
-                        <a className="nav-item nav-link" href="#">Pricing</a>
                     </div>
                 </div>
                 <div className="navbar-nav navbar-right">
