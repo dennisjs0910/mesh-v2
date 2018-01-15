@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styles from './stylesheet/Header.css';
+// import styles from './stylesheet/Header.css';
 
 class Header extends Component {
     renderContent() {
@@ -9,25 +9,27 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <a className="nav-item nav-link" href='/auth/google'>Login with Google</a>
+                return <li><a href="/auth/google"><span className="glyphicon glyphicon-log-in"></span>Login</a></li>
             default:
-                return <a className="nav-item nav-link" href='/api/logout'>Logout</a>
+                return <li><a href="/api/logout"><span className="glyphicon glyphicon-log-out"></span>Logout</a></li>
         }
     }
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <Link to={this.props.auth ? '/' : '/'} className='navbar-brand'>
-                    TITLE
-                </Link>
-
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
+            <nav className="navbar navbar-inverse">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <Link to={this.props.auth ? '/' : '/'} className='navbar-brand'>
+                            TITLE
+                        </Link>
                     </div>
-                </div>
-                <div className="navbar-nav navbar-right">
-                    { this.renderContent() }
+                    <ul className="nav navbar-nav">
+                        <li className="active"><a href="/">Home</a></li>
+                    </ul>
+                    <ul className="nav navbar-nav navbar-right">
+                        { this.renderContent() }
+                    </ul>
                 </div>
             </nav>
         );

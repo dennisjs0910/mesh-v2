@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchTwitterTimeLine } from '../actions';
-// import  from './stylesheet/Header.css';
+import * as styles from './twitter.css';
 
 class TwitterComponent extends Component {
 
@@ -11,19 +11,24 @@ class TwitterComponent extends Component {
             return this.renderFetchingData();
         }
         // console.log("singlepost",timeline[0]);
+        let containerStyle = {
+            height: '200px',
+        };
         let mappedTimeline = timeline.map((post) => {
             return (
-                <div className="panel panel-info">
-                    <div className="panel-heading">
-                        <a className="panel-title" href={ post.user.url }>
-                            { post.user.name }
-                        </a>
+                <div className="col-sm-4">
+                    <div key={ post.id }
+                    className="panel panel-info" style={ containerStyle }>
+                        <div className="panel-heading">
+                            <a className="panel-title" href={ post.user.url }>
+                                { post.user.name }
+                            </a>
+                        </div>
+                        <div className="panel-body">{ post.text }</div>
                     </div>
-                    <div className="panel-body">{ post.text }</div>
                 </div>
             )
         });
-        
 
         return(
             <div>
@@ -41,8 +46,6 @@ class TwitterComponent extends Component {
             </div>
         )
     }
-
-
 
     render() {
         return (
