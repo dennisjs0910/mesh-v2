@@ -1,6 +1,7 @@
 const passport = require('passport');
 const TwitterClient = require('../services/TwitterClient');
 let client = new TwitterClient();
+
 module.exports = (app) => {
     app.get('/auth/twitter', passport.authenticate('twitter'));
 

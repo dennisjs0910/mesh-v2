@@ -11,6 +11,7 @@ require('./models/User');
 
 require('./services/googlePassport');
 require('./services/twitterPassport');
+require('./services/instagramPassport');
 
 // DATABASE PROXY to check go on mlab.com
 mongoose.connect(keys.mongoURI);
