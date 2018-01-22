@@ -16,8 +16,8 @@ module.exports = (app) => {
 
     app.get('/api/instagram/timeline',(req, res) => {
         client.init(req.user);
-        client.getUserTimeLine().then((timeLine)=>{
-            res.send(timeLine);
+        client.getUserTimeLine().then((media)=>{
+            res.send(media);
         });
-    })
+    });
 }

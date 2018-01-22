@@ -11,19 +11,21 @@ class IGComponent extends Component {
         }
         // console.log("singlepost",timeline[0]);
         let containerStyle = {
-            height: '200px',
+            height: '500px',
+            borderColor: '#8a3ab9 !important'
         };
+
         let mappedTimeline = timeline.map((post) => {
             return (
                 <div className="col-sm-4">
                     <div key={ post.id }
                     className="panel panel-info" style={ containerStyle }>
-                        <div className="panel-heading">
+                        <div className="panel-heading" id="insta-panel-header">
                             <a className="panel-title" href={ post.user.url }>
-                                { post.user.name }
+                                { post.user.username }
                             </a>
                         </div>
-                        <div className="panel-body">{ post.text }</div>
+                        { this.renderImageOrVideo(post) }
                     </div>
                 </div>
             )
@@ -34,6 +36,28 @@ class IGComponent extends Component {
                 { mappedTimeline }
             </div>
         )
+    }
+
+    renderImageOrVideo(post) {
+        if (post.type === "video") {
+            return(
+                <div className="panel-body">
+                    <video width= "300px">
+                        <source src={post.videos.low_resolution.url} type="video/mp4"/>
+                    </video>
+                    <p>Likes: {post.likes.count} </p>
+                    <p>{ post.caption.text }</p>
+                </div>
+            )
+        } else {
+            return(
+                <div className="panel-body">
+                    <img width= "300px" src={post.images.low_resolution.url}/>
+                    <p>Likes: {post.likes.count} </p>
+                    <p>{ post.caption.text }</p>
+                </div>
+            )
+        }
     }
 
     renderFetchingData() {
