@@ -19,7 +19,7 @@ class IGComponent extends Component {
             return (
                 <div className="col-sm-4">
                     <div key={ post.id }
-                    className="panel panel-info" style={ containerStyle }>
+                    className="panel panel-info" id="insta-panel-info" style={ containerStyle }>
                         <div className="panel-heading" id="insta-panel-header">
                             <a className="panel-title" href={ post.user.url }>
                                 { post.user.username }
