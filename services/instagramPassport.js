@@ -12,10 +12,12 @@ passport.use(new InstagramStrategy({
     },
     (req, accessToken, refreshToken, profile, done) => {
         if (req.user) {
+
             User.findByIdAndUpdate(
                 req.user._id,
-                { instaToken: accessToken, instaTokenSecret: refreshToken},
+                { instaToken: accessToken, instaId: profile.id },
                 (err, user) => {
+                    console.log("updated User");
                     done(null, user);
                 }
             )

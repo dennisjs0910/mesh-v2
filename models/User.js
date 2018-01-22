@@ -7,7 +7,9 @@ const userSchema = new Schema({
     name: String,
     email: String,
     twitterToken: String,
-    twitterTokenSecret: String
+    twitterTokenSecret: String,
+    instaToken: String,
+    instaId: String
 });
 
 
