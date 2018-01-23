@@ -11,7 +11,7 @@ export const authTwitter = () => {
 
 export const authInstagram = () => {
     return function(dispatch) {
-        axios.get('/auth/twitter').then((res) => {
+        axios.get('/auth/instagram').then((res) => {
             dispatch({ type: AUTH_CONSTANTS, payload: res.data });
         });
     }

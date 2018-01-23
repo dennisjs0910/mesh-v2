@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import NewsFeed from './NewsFeed'
 import Header from './Header';
+import Authenticate from './Authenticate';
 
 class App extends Component {
 
@@ -18,7 +19,7 @@ class App extends Component {
                     <div>
                         <Header />
                         <Route exact path='/' component={ NewsFeed } />
-    
+                        <Route exact path='/authenticate' component={ Authenticate } />
                     </div>
                 </BrowserRouter>
             </div>

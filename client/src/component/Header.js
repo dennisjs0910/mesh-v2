@@ -26,6 +26,7 @@ class Header extends Component {
                     </div>
                     <ul className="nav navbar-nav">
                         <li className="active"><a href="/">Home</a></li>
+                        <li className="active"><a href="/authenticate">Add Social Media</a></li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         { this.renderContent() }
