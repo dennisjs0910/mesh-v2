@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, GET_TWITTER_TIMELINE } from './types';
+import { FETCH_USER, GET_TWITTER_TIMELINE, GET_INSTAGRAM_TIMELINE } from './types';
 
 export const fetchUser = () => {
     return function(dispatch) {
@@ -15,6 +15,17 @@ export const fetchTwitterTimeLine = () => {
             dispatch({ 
                 type: GET_TWITTER_TIMELINE,
                 payload: res.data
+            })
+        });
+    }
+};
+
+export const fetchInstagramTimeLine = () => {
+    return (dispatch) => {
+        axios.get('/api/instagram/timeline').then((res) => {
+            dispatch({
+                type: GET_INSTAGRAM_TIMELINE,
+                payload: res.data.data
             })
         });
     }
