@@ -18,6 +18,7 @@ class App extends Component {
                     <div>
                         <Header />
                         <Route exact path='/' component={ NewsFeed } />
+    
                     </div>
                 </BrowserRouter>
             </div>

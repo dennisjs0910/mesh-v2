@@ -20,7 +20,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(
     cookieSession({
-        maxAge: 30 * 24 * 60 * 60 * 1000,
+        maxAge: 1 * 1 * 60 * 60 * 1000,
         keys: [keys.cookieKey]
     })
 );

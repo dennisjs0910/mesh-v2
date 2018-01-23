@@ -42,7 +42,7 @@ class IGComponent extends Component {
         if (post.type === "video") {
             return(
                 <div className="panel-body">
-                    <video width= "300px">
+                    <video controls loop width= "300px">
                         <source src={post.videos.low_resolution.url} type="video/mp4"/>
                     </video>
                     <p>Likes: {post.likes.count} </p>
