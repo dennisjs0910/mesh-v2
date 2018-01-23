@@ -9,4 +9,4 @@ module.exports = {
     instagramClientId: "3b653b2720ff41ec959985dd8e523cfb",
     instagramConsumerSecret: "126fe4f321a04e42864dd6dcfb807f1a",
     mongoURI: 'mongodb://dennisjs0910:Admin123Admin123@ds251217.mlab.com:51217/nwhack2018'
-}
+};
