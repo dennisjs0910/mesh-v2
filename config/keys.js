@@ -5,7 +5,7 @@ module.exports = {
     twitterConsumerKey:	"LRugJVkMdjDd7zgBRp3DqRzbJ",
     twitterConsumerSecret: "m3QUi4KobAYkJip9Rg9qhWYHNQt3KNKpFshOeGP0k3zbyBjFxt",
     twitterAccessToken: "952425623221280768-Gvs2AgwbDCSu6GfLC0kds7vVExn8aoR",
-    twitterAccesssTokenSecret: "2fnGufI3xA84yZDIcsrUPIWg8OyF6uJsbOa0W9FwTC2GR",
+    twitterAccessTokenSecret: "2fnGufI3xA84yZDIcsrUPIWg8OyF6uJsbOa0W9FwTC2GR",
     instagramClientId: "3b653b2720ff41ec959985dd8e523cfb",
     instagramConsumerSecret: "126fe4f321a04e42864dd6dcfb807f1a",
     redditConsumerKey: "",
