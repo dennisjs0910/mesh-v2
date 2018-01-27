@@ -5,11 +5,15 @@ import { fetchTwitterTimeLine } from '../actions';
 class TwitterComponent extends Component {
 
     renderTimeline() {
+        const user = this.props.auth;
         let timeline = this.props.timeline;
+        if (!user) {
+            return (<div></div>);
+        }
         if (!timeline) {
             return this.renderFetchingData();
         }
-        // console.log("singlepost",timeline[0]);
+
         let containerStyle = {
             height: '200px',
         };
@@ -56,7 +60,10 @@ class TwitterComponent extends Component {
 }
 
 function mapStateToProps(state){
-    return { timeline : state.twitter };
+    return {
+        timeline : state.twitter,
+        auth : state.auth
+    };
 }
 
 export default connect(mapStateToProps, fetchTwitterTimeLine)(TwitterComponent);

@@ -12,6 +12,7 @@ class App extends Component {
         this.props.fetchUser();
     }
 
+
     render() {
         return (
             <div className='container'>
@@ -27,6 +28,11 @@ class App extends Component {
     }
 }
 
-App = connect(null, actions)(App);
+function mapStateToProps(state) {
+    // console.log("APP", state);
+    return {user: state.auth};
+}
+
+App = connect(mapStateToProps, actions)(App);
 
 export default App;

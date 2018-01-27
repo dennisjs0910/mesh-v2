@@ -5,7 +5,11 @@ import { fetchInstagramTimeLine } from '../actions';
 class IGComponent extends Component {
 
     renderTimeline() {
+        const user = this.props.timeline;
         let timeline = this.props.timeline;
+        if (!user) {
+            return (<div></div>);
+        }
         if (!timeline) {
             return this.renderFetchingData();
         }
@@ -80,7 +84,11 @@ class IGComponent extends Component {
 }
 
 function mapStateToProps(state){
-    return { timeline : state.instagram };
+    console.log("storeNewsFeed", state);
+    return {
+        timeline : state.instagram,
+        auth: state.auth
+    };
 }
 
 export default connect(mapStateToProps, fetchInstagramTimeLine)(IGComponent);
