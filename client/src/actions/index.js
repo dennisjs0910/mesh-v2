@@ -18,15 +18,15 @@ export const fetchTwitterTimeLine = () => {
             })
         });
     }
-}
+};
 
 export const fetchInstagramTimeLine = () => {
     return (dispatch) => {
         axios.get('/api/instagram/timeline').then((res) => {
-            dispatch({ 
+            dispatch({
                 type: GET_INSTAGRAM_TIMELINE,
                 payload: res.data.data
             })
         });
     }
-}
+};

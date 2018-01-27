@@ -20,4 +20,4 @@ module.exports = (app) => {
             res.send(media);
         });
     });
-}
+};
