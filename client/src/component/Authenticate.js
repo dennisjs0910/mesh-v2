@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-// import { connect } from 'react-redux';
-// import { authTwitter , authInstagram } from '../actions/authAction';
 
 class Authenticate extends Component {
     render() {
@@ -22,11 +20,4 @@ class Authenticate extends Component {
     }
 }
 
-// function mapStateToProps(store) {
-//     return { auth : store.auth };
-// }
-// function mapDispatchToProps() {
-//     return {authTwitter: authTwitter, authInstagram: authInstagram};
-// }
-// export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);
 export default Authenticate;
