@@ -3,17 +3,23 @@ import { connect } from 'react-redux';
 import { fetchInstagramTimeLine } from '../actions';
 
 class IGComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            postData: this.props.postData
+        }
+    }
 
     renderTimeline() {
-        const user = this.props.timeline;
+        const user = this.props.auth;
         let timeline = this.props.timeline;
         if (!user) {
-            return (<div></div>);
+            return (<div>IF YOU CANNOT LOGIN ASK DENNIS TO AUTHENTICATE YOU.</div>);
         }
         if (!timeline) {
-            return this.renderFetchingData();
+            return (<div>IF YOU CANNOT LOGIN ASK DENNIS TO AUTHENTICATE YOU.</div>);
         }
-        // console.log("singlepost",timeline[0]);
+
         let containerStyle = {
             height: '500px',
             borderColor: '#8a3ab9 !important'
@@ -84,7 +90,6 @@ class IGComponent extends Component {
 }
 
 function mapStateToProps(state){
-    console.log("storeNewsFeed", state);
     return {
         timeline : state.instagram,
         auth: state.auth
