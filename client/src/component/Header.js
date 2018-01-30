@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // import styles from './stylesheet/Header.css';
 
 class Header extends Component {
+
     renderContent() {
         switch (this.props.auth) {
             case null:
@@ -15,19 +16,27 @@ class Header extends Component {
         }
     }
 
+    renderUserNavigation() {
+        if(this.props.auth) {
+            return(
+                <ul className="nav navbar-nav">
+                    <li className="active"><a href="/">Home</a></li>
+                    <li className="active"><a href="/authenticate">Add Social Media</a></li>
+                </ul>
+            )
+        }
+    }
+
     render() {
         return (
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <Link to={this.props.auth ? '/' : '/'} className='navbar-brand'>
-                            TITLE
+                            Mesh
                         </Link>
                     </div>
-                    <ul className="nav navbar-nav">
-                        <li className="active"><a href="/">Home</a></li>
-                        <li className="active"><a href="/authenticate">Add Social Media</a></li>
-                    </ul>
+                    { this.renderUserNavigation() }
                     <ul className="nav navbar-nav navbar-right">
                         { this.renderContent() }
                     </ul>

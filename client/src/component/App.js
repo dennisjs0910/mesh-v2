@@ -12,16 +12,39 @@ class App extends Component {
         this.props.fetchUser();
     }
 
+    renderHome() {
+        return (
+            <div>
+                <Header />
+                <Route exact path='/' component={ NewsFeed } />
+                <Route exact path='/authenticate' component={ Authenticate } />
+            </div>
+        );
+    }
+
+    renderUserLogin() {
+        return (
+            <div>
+                <Header />
+                <h1>STUB PLEASE LOGIN OR SOMETHING</h1>
+            </div>
+        )
+    }
+
+    renderAccordingToLogin() {
+        if(this.props.user) {
+            return this.renderHome();
+        } else {
+            return this.renderUserLogin();
+        }
+    }
+
 
     render() {
         return (
             <div className='container'>
                 <BrowserRouter>
-                    <div>
-                        <Header />
-                        <Route exact path='/' component={ NewsFeed } />
-                        <Route exact path='/authenticate' component={ Authenticate } />
-                    </div>
+                    { this.renderAccordingToLogin() }
                 </BrowserRouter>
             </div>
         );
