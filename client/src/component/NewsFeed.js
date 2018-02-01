@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import TwitterComponent from './TwitterComponent';
 import IGComponent from './IGComponent';
-import FilteredComponent from './FilteredComponent';
+import postsComponent from './postsComponent';
+
 class NewsFeed extends Component {
     render() {
         return (
@@ -9,7 +10,7 @@ class NewsFeed extends Component {
                 <ul>
                     <IGComponent />
                     <TwitterComponent />
-                    <FilteredComponent />
+                    <postsComponent />
                 </ul>
             </div>
         );

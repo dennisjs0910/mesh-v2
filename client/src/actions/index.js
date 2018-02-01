@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, GET_TWITTER_TIMELINE, GET_INSTAGRAM_TIMELINE } from './types';
+import { FETCH_USER, GET_TWITTER_TIMELINE, GET_INSTAGRAM_TIMELINE, SORT_TIMELINE } from './types';
 
 export const fetchUser = () => {
     return function(dispatch) {
@@ -29,4 +29,14 @@ export const fetchInstagramTimeLine = () => {
             })
         });
     }
+};
+
+export const sortTimeline = (sortKey, sortOrder) => {
+    return (dispatch) => dispatch({
+        type: SORT_TIMELINE,
+        payload: {
+            sortKey: sortKey,
+            sortOrder: sortOrder
+        }
+    });
 };
