@@ -31,12 +31,9 @@ export const fetchInstagramTimeLine = () => {
     }
 };
 
-export const sortTimeline = (sortKey, sortOrder) => {
-    return (dispatch) => dispatch({
+export const sortTimeline = key => {
+    return {
         type: SORT_TIMELINE,
-        payload: {
-            sortKey: sortKey,
-            sortOrder: sortOrder
-        }
-    });
+        payload: key
+    };
 };
