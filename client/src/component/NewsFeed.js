@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TwitterComponent from './TwitterComponent';
 import IGComponent from './IGComponent';
 import SortButton from './SortButton';
+import PostContainer from './PostContainer';
 import { connect } from 'react-redux';
 import { fetchInstagramTimeLine, fetchTwitterTimeLine } from '../actions';
 
@@ -13,6 +14,7 @@ class NewsFeed extends Component {
                     <SortButton />
                     <IGComponent />
                     <TwitterComponent />
+                    <PostContainer />
                 </ul>
             </div>
         );

@@ -9,9 +9,8 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case SORT_TIMELINE: {
-            console.log(action);
-            let isSameKey = state.key === action.payload;
-            return {key: action.payload, isAsc: (isSameKey) ? !state.isAsc : state.isAsc};
+            let isSameKey = state.key === action.payload.key;
+            return {key: action.payload.key, isAsc: (isSameKey) ? !state.isAsc : state.isAsc};
         }
         default:
             return state;

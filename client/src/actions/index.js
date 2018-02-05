@@ -31,9 +31,9 @@ export const fetchInstagramTimeLine = () => {
     }
 };
 
-export const sortTimeline = key => {
+export const sortTimeline = (key, data) => {
     return {
         type: SORT_TIMELINE,
-        payload: key
+        payload: {key: key, data: data}
     };
 };

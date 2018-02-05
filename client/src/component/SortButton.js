@@ -5,10 +5,11 @@ import { sortTimeline } from '../actions'
 
 class SortButton extends Component {
     render() {
-        console.log(this.props);
+        const post = this.props.post;
+        let onClickHandler = () => this.props.onClickTime(post);
         return (
             <div>
-                <button className='btn btn-primary' onClick = { this.props.onClickTime }>
+                <button className='btn btn-primary' onClick = { onClickHandler } >
                 {this.props.sortInfo}
                 </button>
             </div>
@@ -18,11 +19,19 @@ class SortButton extends Component {
 
 
 const mapStateToProps = state => {
-    return {sortInfo: state.sort.key}
+    return {
+        sortInfo: state.sort.key,
+        post: {
+            twitter: state.twitter,
+            instagram: state.instagram
+        }
+    };
 };
 
 const mapDispatchToProps = dispatch => ({
-    onClickTime: () => { dispatch(sortTimeline("time")) }
+    onClickTime: (data) => {
+        dispatch(sortTimeline("time", data));
+    }
 });
 
 
