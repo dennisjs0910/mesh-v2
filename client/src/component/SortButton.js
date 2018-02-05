@@ -5,7 +5,6 @@ import { sortTimeline } from '../actions'
 
 class SortButton extends Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 <button className='btn btn-primary' onClick = { this.props.onClickTime }>

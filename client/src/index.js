@@ -12,7 +12,6 @@ window.axios = axios;
 
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk, logger));
-store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
     <Provider store={ store }>
