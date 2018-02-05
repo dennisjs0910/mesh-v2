@@ -1,27 +1,4 @@
-import {GET_INSTAGRAM_TIMELINE, GET_TWITTER_TIMELINE, SORT_TIMELINE} from "../actions/types";
-
-export default (state = [], action) => {
-
-    console.log(action);
-    switch (action.type) {
-        case SORT_TIMELINE: {
-            console.log("in switch");
-            return state.concat(_sortByTime(state));
-        }
-        case GET_INSTAGRAM_TIMELINE: {
-            return state.concat(action.payload);
-        }
-        case GET_TWITTER_TIMELINE: {
-            return state.concat(action.payload);
-        }
-        default:
-            return state;
-    }
-}
-
-
-
-const _sortByTime = (oData) => {
+export const sortByTime = (oData) => {
     console.log(oData);
     const twitter = oData.twitter, instagram = oData.instagram;
 
@@ -49,7 +26,7 @@ const _sortByTime = (oData) => {
     return aResult;
 };
 
-const _getTimeStamp = (oData, sType) => {
+function _getTimeStamp(oData, sType) {
     let date;
     switch (sType) {
         case "twitter": {
