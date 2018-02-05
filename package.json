@@ -27,6 +27,7 @@
     "passport-google-oauth20": "^1.0.0",
     "passport-instagram": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "redux-logger": "^3.0.6",
     "twitter": "^1.7.1"
   }
 }
