@@ -1,39 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sortTimeline } from '../actions'
+import { sortTimeline } from '../actions';
 
 
 class SortButton extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
-        const post = this.props.post;
-        let onClickHandler = () => this.props.onClickTime(post);
+        const {name, post} = this.props;
+        let onClickHandler = () => this.props.onClickHandler(name, post);
         return (
-            <div>
-                <button className='btn btn-primary' onClick = { onClickHandler } >
-                {this.props.sortInfo}
-                </button>
-            </div>
+            <button type="button" className="btn btn-default" onClick = { onClickHandler } >
+                {this.props.name}
+            </button>
         );
     }
 }
 
-
-const mapStateToProps = state => {
-    return {
-        sortInfo: state.sort.key,
-        post: {
-            twitter: state.twitter,
-            instagram: state.instagram
-        }
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    onClickTime: (data) => {
-        dispatch(sortTimeline("time", data));
+const mapStateToProps = state => ({
+    post: {
+        twitter: state.twitter,
+        instagram: state.instagram
     }
 });
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(SortButton);
+export default connect(mapStateToProps, sortTimeline)(SortButton);

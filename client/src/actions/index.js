@@ -31,9 +31,11 @@ export const fetchInstagramTimeLine = () => {
     }
 };
 
-export const sortTimeline = (key, data) => {
-    return {
-        type: SORT_TIMELINE,
-        payload: {key: key, data: data}
-    };
-};
+export const sortTimeline = dispatch => ({
+    onClickHandler: (key, data) => {
+        dispatch({
+            type: SORT_TIMELINE,
+            payload: {key: key, data: data}
+        });
+    }
+});

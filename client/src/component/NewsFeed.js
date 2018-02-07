@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TwitterComponent from './TwitterComponent';
 import IGComponent from './IGComponent';
 import SortButton from './SortButton';
-import PostContainer from './PostContainer';
 import { connect } from 'react-redux';
 import { fetchInstagramTimeLine, fetchTwitterTimeLine } from '../actions';
 
@@ -10,11 +9,13 @@ class NewsFeed extends Component {
     render() {
         return (
             <div className='NewsFeed'>
+                <div className="sortbutton-container btn-group" role="group">
+                    <SortButton key="time" name="time"/>
+                    <SortButton key="media" name="media"/>
+                </div>
                 <ul>
-                    <SortButton />
                     <IGComponent />
                     <TwitterComponent />
-                    <PostContainer />
                 </ul>
             </div>
         );
@@ -26,7 +27,8 @@ function mapStateToProps(state) {
     return {
         instagram : state.instagram,
         twitter : state.twitter,
-        auth: state.auth
+        auth: state.auth,
+        post: state.post
     };
 }
 

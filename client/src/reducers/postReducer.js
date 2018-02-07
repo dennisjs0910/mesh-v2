@@ -3,29 +3,36 @@ import { SORT_TIMELINE } from '../actions/types';
 export default function(state = [], action) {
 	switch (action.type) {
 		case SORT_TIMELINE: {
-			const data = action.payload.data;
-			
-			return _sortByTime(data);
+			const {key, data} = action.payload;
+			return sortPost(key, data);
 		}
 		default:
 			return state;
 	}
 }
 
-const _sortByTime = (oData) => {
-    const twitter = oData.twitter, instagram = oData.instagram;
+const sortPost = (key, data) => {
+	switch (key) {
+		case "time":
+			return _sortByTime(data);
+		case "media":
+			return _sortByMedia(data);
+		default:
+			return new Error("Wrong type");
+	}
+}
+
+const _sortByTime = (data) => {
+    const twitter = data.twitter, instagram = data.instagram;
     let aResult = [], iTwitterCounter = 0, iInstagramCounter = 0;
 
     if (!twitter && !instagram) return aResult;
     if (twitter === null) return instagram;
     if (instagram === null) return twitter;
 
-
-    
-
-    const oTwitterDate = _getTimeStamp(twitter[iTwitterCounter], "twitter");
-    const oInstagramDate = _getTimeStamp(instagram[iInstagramCounter], "instagram");
     while (iTwitterCounter < twitter.length && iInstagramCounter < instagram.length) {
+        const oTwitterDate = _getTimeStamp(twitter[iTwitterCounter], "twitter");
+        const oInstagramDate = _getTimeStamp(instagram[iInstagramCounter], "instagram");
         if (oTwitterDate > oInstagramDate) {
             aResult.push(twitter[iTwitterCounter++]);
         }
@@ -43,15 +50,27 @@ const _sortByTime = (oData) => {
     return aResult;
 };
 
-const _getTimeStamp = (oData, sType) => {
+const _sortByMedia = (data) => {
+	const twitter = data.twitter, instagram = data.instagram;
+	let aResult = [], iTwitterCounter = 0, iInstagramCounter = 0;
+
+	if (!twitter && !instagram) return aResult;
+    if (twitter === null) return instagram;
+    if (instagram === null) return twitter;
+	
+	return aResult.concat(twitter).concat(instagram);
+
+}
+
+const _getTimeStamp = (data, type) => {
     let date;
-    switch (sType) {
+    switch (type) {
         case "twitter": {
-            date = oData.created_at;
+            date = data.created_at;
             break;
         }
         case "instagram": {
-            date = oData.created_time * 1000;
+            date = data.created_time * 1000;
             break;
         }
         default: {
