@@ -1,5 +1,4 @@
 import { SORT_TIMELINE } from "../actions/types";
-import { sortByTime } from "../sortUtils";
 
 const initialState = {
     key: 'media',
