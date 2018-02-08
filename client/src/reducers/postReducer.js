@@ -28,11 +28,11 @@ const _sortByTime = (data) => {
 
     if (!twitter && !instagram) return aResult;
     if (twitter === null) return instagram;
-    if (instagram === null) return twitter;    
+    if (instagram === null) return twitter;
 
-    const oTwitterDate = _getTimeStamp(twitter[iTwitterCounter], "twitter");
-    const oInstagramDate = _getTimeStamp(instagram[iInstagramCounter], "instagram");
     while (iTwitterCounter < twitter.length && iInstagramCounter < instagram.length) {
+        const oTwitterDate = _getTimeStamp(twitter[iTwitterCounter], "twitter");
+        const oInstagramDate = _getTimeStamp(instagram[iInstagramCounter], "instagram");
         if (oTwitterDate > oInstagramDate) {
             aResult.push(twitter[iTwitterCounter++]);
         }

@@ -9,7 +9,7 @@ class NewsFeed extends Component {
     render() {
         return (
             <div className='NewsFeed'>
-                <div className="btn-group" role="group">
+                <div className="sortbutton-container btn-group" role="group">
                     <SortButton key="time" name="time"/>
                     <SortButton key="media" name="media"/>
                 </div>
