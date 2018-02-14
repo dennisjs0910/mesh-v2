@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import { fetchInstagramTimeLine, fetchTwitterTimeLine } from '../actions';
 
 class NewsFeed extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className='NewsFeed'>
@@ -13,12 +17,42 @@ class NewsFeed extends Component {
                     <SortButton key="time" name="time"/>
                     <SortButton key="media" name="media"/>
                 </div>
+                    { this.renderHelper() }
+                </div>
+        );
+    }
+
+
+    renderHelper() {
+        let sSortKey = this.props.sort && this.props.sort.key;
+        if (sSortKey === "time") {
+            //sort by time;
+            return (<div>{ this.renderByTimeline() }</div>);
+        } else {
+            // sort by media (default)
+            return (
                 <ul>
                     <IGComponent />
                     <TwitterComponent />
                 </ul>
-            </div>
-        );
+            )
+        }
+    }
+
+    renderByTimeline() {
+        let aTimeline = this.props.post;
+        if (!aTimeline) {
+            return (<div>You don't have any posts or development problem stub </div>);
+        }
+        const aReactTimeline = aTimeline.map((post) => {
+            if (post.retweeted !== null) {
+                return <TwitterComponent post={post} />
+            } else {
+                return <IGComponent post={post} />
+            }
+        });
+        return (<div> {aReactTimeline} </div>);
+
     }
 }
 
@@ -28,7 +62,8 @@ function mapStateToProps(state) {
         instagram : state.instagram,
         twitter : state.twitter,
         auth: state.auth,
-        post: state.post
+        post: state.post,
+        sort: state.sort
     };
 }
 

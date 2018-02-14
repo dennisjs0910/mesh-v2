@@ -52,7 +52,7 @@ const _sortByTime = (data) => {
 
 const _sortByMedia = (data) => {
 	const twitter = data.twitter, instagram = data.instagram;
-	let aResult = [], iTwitterCounter = 0, iInstagramCounter = 0;
+	let aResult = [];
 
 	if (!twitter && !instagram) return aResult;
     if (twitter === null) return instagram;

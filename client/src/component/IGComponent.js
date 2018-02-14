@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchInstagramTimeLine } from '../actions';
+import NewsFeed from './NewsFeed';
 
-class IGComponent extends Component {
+class IGComponent extends NewsFeed {
     constructor(props) {
         super(props);
         this.state = {
-            postData: this.props.postData
+            post: this.props.post
         }
     }
 
@@ -81,6 +82,26 @@ class IGComponent extends Component {
     }
 
     render() {
+        const post = this.state.post;
+        if (post) {
+            let containerStyle = {
+                height: '500px',
+                borderColor: '#8a3ab9 !important'
+            };
+            return (
+                <div className="col-sm-4">
+                    <div key={ post.id }
+                    className="panel panel-info" id="insta-panel-info" style={ containerStyle }>
+                        <div className="panel-heading" id="insta-panel-header">
+                            <a className="panel-title" href={ post.user.url }>
+                                { post.user.username }
+                            </a>
+                        </div>
+                        { this.renderImageOrVideo(post) }
+                    </div>
+                </div>
+            )
+        }
         return (
             <div className="">
                 { this.renderTimeline() }

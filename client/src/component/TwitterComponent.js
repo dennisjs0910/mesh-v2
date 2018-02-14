@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchTwitterTimeLine } from '../actions';
+import NewsFeed from './NewsFeed';
 
-class TwitterComponent extends Component {
+class TwitterComponent extends NewsFeed {
+    constructor(props) {
+        super(props);
+        this.state = {
+            post: props.post
+        }
+    }
 
     renderTimeline() {
         const user = this.props.auth;
@@ -51,6 +58,26 @@ class TwitterComponent extends Component {
     }
 
     render() {
+        const post = this.state.post;
+        if (post) {
+            let containerStyle = {
+                height: '200px',
+            };
+            return (
+                <div className="col-sm-4">
+                    <div key={ post.id }
+                    className="panel panel-info" style={ containerStyle }>
+                        <div className="panel-heading">
+                            <a className="panel-title" href={ post.user.url }>
+                                { post.user.name }
+                            </a>
+                        </div>
+                        <div className="panel-body">{ post.text }</div>
+                    </div>
+                </div>
+            )
+        }
+        
         return (
             <div className="">
                 { this.renderTimeline() }
