@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 import { fetchInstagramTimeLine, fetchTwitterTimeLine } from '../actions';
 
 class NewsFeed extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

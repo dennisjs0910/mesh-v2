@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { fetchInstagramTimeLine } from '../actions';
 import NewsFeed from './NewsFeed';
 
-class IGComponent extends NewsFeed {
+class IGComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: this.props.post
-        }
+            post: props.post
+        };
     }
 
     renderTimeline() {
