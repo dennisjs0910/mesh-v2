@@ -4,10 +4,7 @@ import { sortTimeline } from '../actions';
 
 
 class SortButton extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     render() {
         const {name, post} = this.props;
         let onClickHandler = () => this.props.onClickHandler(name, post);

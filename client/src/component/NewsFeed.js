@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TwitterComponent from './TwitterComponent';
 import IGComponent from './IGComponent';
+import TimelineFeed from './TimelineFeed';
 import SortButton from './SortButton';
 import { connect } from 'react-redux';
 import { fetchInstagramTimeLine, fetchTwitterTimeLine } from '../actions';
@@ -39,14 +40,10 @@ class NewsFeed extends Component {
     renderByTimeline() {
         let aTimeline = this.props.post;
         if (!aTimeline) {
-            return (<div>You don't have any posts or development problem stub </div>);
+            return (<div>You do not have any posts or development problem stub </div>);
         }
         const aReactTimeline = aTimeline.map((post) => {
-            if (post.retweeted !== null) {
-                return <TwitterComponent post={post} />
-            } else {
-                return <IGComponent post={post} />
-            }
+            return <TimelineFeed post={post} />
         });
         return (<div> {aReactTimeline} </div>);
 

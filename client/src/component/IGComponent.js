@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchInstagramTimeLine } from '../actions';
-import NewsFeed from './NewsFeed';
 
 class IGComponent extends Component {
     constructor(props) {
